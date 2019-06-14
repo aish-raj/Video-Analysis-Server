@@ -1,0 +1,38 @@
+package com.testvideoanalysis.video;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.testvideoanalysis.path.PathManager;
+
+@Service
+public class VideoService {
+	
+	@Autowired
+	Analyser analyser;
+	
+	@Autowired
+	PathManager pathManager;
+	
+	public void uploadFile(Video video, MultipartFile file) {
+		
+		try {
+		      InputStream is = file.getInputStream();
+		      Files.copy(is, Paths.get(pathManager.getDownloadedVideos()), StandardCopyOption.REPLACE_EXISTING);
+		      analyser.getTags(pathManager.getDownloadedVideos().toString() + video.getVideoName());
+		}
+		
+		catch (IOException ex) {
+		      System.out.println("Error writing file to output stream.");
+		      throw new RuntimeException("IOError writing file to output stream");
+		}
+	}
+}

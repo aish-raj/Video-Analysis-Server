@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="course-id"/>
+<aop-project name="Video-Analysis-API"/>
+<aop-project name="course-id-data"/>
+<aop-project name="Test-Video-Analysis-API"/>
+</aop-reference-model>

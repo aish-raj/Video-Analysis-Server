@@ -1,0 +1,18 @@
+package com.testvideoanalysis.videos;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class VideoController {
+
+	    @Autowired
+	    private VideoService videoService;
+
+	    @RequestMapping(value = "/upload", method = RequestMethod.POST, consumes = {"multipart/form-data"})
+	    public String upload(@RequestParam MultipartFile file) {
+
+	        videoService.uploadFile(file);
+
+	        return "redirect:/success.html";
+	    }
+}

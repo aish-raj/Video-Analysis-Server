@@ -1,0 +1,26 @@
+package com.videoanalysis.questions;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class QuestionService {
+
+	@Autowired
+	private QuestionRepository questionRepository ;
+	//private ArrayList<Question> dummy;
+	
+	public ArrayList<Question> getAllQuestions(){
+		ArrayList<Question> questions = new ArrayList<Question>();
+		questionRepository.findAll().forEach(questions::add);
+		return questions;
+	}
+	
+	public void addQuestion(Question question) {
+		questionRepository.save(question);
+	}
+	
+	public void 
+}

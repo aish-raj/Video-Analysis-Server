@@ -1,0 +1,54 @@
+package com.testvideoanalysis.path;
+
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PathManager {
+	
+	@Value("{root.direcotry}")
+	private String root;
+	
+	@Value("{src.directory}")
+	private String src;
+	
+	@Value("{jsonFiles.direcotry"})
+	private String jsonFiles;
+	
+	@Value("{pythonSrc.directory"})
+	private String pythonSrc;
+	
+	@Value("{downloadedVideos.directory"})
+	private String downloadedVideos = "";
+	
+	PathManager(){
+		
+		root 				+= 
+		src 				+= "src/";
+		jsonFiles 			+= "json-files/";
+		pythonSrc			+= "python-src/";
+		downloadedVideos 	+= "downloaded-videos/";
+		
+	}
+	
+	public String getRoot() {
+		return root;
+	}
+	
+	public String getSrc() {
+		return root + src;
+	}
+	
+	public String getJsonFiles () {
+		return root + jsonFiles;
+	}
+	
+	public String getPythonSrc() {
+		return root + pythonSrc;
+	}
+	
+	public String getDownloadedVideos() {
+		return root + downloadedVideos;
+	}
+}

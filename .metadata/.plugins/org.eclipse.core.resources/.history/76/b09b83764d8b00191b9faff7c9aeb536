@@ -1,0 +1,53 @@
+package com.testvideoanalysis.video;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.testvideoanalysis.path.PathManager;
+
+@Service
+public class Analyser {
+	
+	@Autowired
+	PathManager pathManager;
+	
+	public void getTags(String downloadPath) {
+		
+		String s = null;
+		String tags = "";
+
+        try {
+            
+        	System.out.println("Running python script..");
+            Process p = Runtime.getRuntime().exec("python3 " + pathManager.getPythonSrc() + "integrate.py " + downloadPath);
+            p.waitFor();
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            
+            if (debug == true) {
+            	
+            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+
+             //read the output from the command
+             System.out.println("Here is the standard output of the command:\n");
+            
+            }
+            
+            while ((s = stdInput.readLine()) != null) {
+                tags += s;
+            }
+        }
+        
+        
+        catch (Exception e) {
+            System.out.println("Exception occurred: ");
+            e.printStackTrace();
+            System.exit(-1);
+        }
+        
+        System.out.println(tags);
+    }
+	
+}

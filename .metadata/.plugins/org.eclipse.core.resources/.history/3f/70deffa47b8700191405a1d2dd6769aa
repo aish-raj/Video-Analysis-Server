@@ -1,0 +1,72 @@
+package com.videoanalysis.questions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+
+public class Question {
+	
+	@Id
+	private String qid;
+	
+	private String gender;
+	private String age;
+	private ArrayList<String> emotions;
+	private ArrayList<String> topics;
+	
+	public Question() {
+		
+	}
+	
+	public Question(String qid, String gender, String age, ArrayList<String> emotions, ArrayList<String> topics) {
+		super();
+		this.qid = qid;
+		this.gender = gender;
+		this.age = age;
+		this.emotions = emotions;
+		this.topics = topics;
+	}
+
+	public int getQid() {
+		return qid;
+	}
+	
+	public void setQid(String qid) {
+		this.qid = qid;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	public String getAge() {
+		return age;
+	}
+	
+	public void setAge(String age) {
+		this.age = age;
+	}
+	
+	public ArrayList<String> getEmotions() {
+		return emotions;
+	}
+	
+	public void setEmotions(ArrayList<String> emotions) {
+		this.emotions = emotions;
+	}
+	
+	public ArrayList<String> getTopics() {
+		return topics;
+	}
+	
+	public void setTopics(ArrayList<String> topics) {
+		this.topics = topics;
+	}
+	
+	
+}

@@ -1,0 +1,10 @@
+package com.videoanalysis;
+
+public class VideoAnalysisApplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.testvideoanalysis.video;
+
+public class Analyser {
+	
+	
+	public String getTags(String path) {
+		
+	}
+	
+	
+}

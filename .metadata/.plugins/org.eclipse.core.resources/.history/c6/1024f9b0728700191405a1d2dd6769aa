@@ -1,0 +1,27 @@
+package com.videoanalysis.questions;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class QuestionService {
+
+	@Autowired
+	private QuestionService questionService;
+	
+	private List<Question> dummy = new ArrayList<Question>();
+	
+	private List<String> emo = new ArrayList<String>();
+	emo.add("ABC");
+	emo.add("XYZ");
+
+	List<String> science  = Arrays.asList("geography", "geography2");
+	//Question q1 = new Question (1, "Male", 21, "XYZ", "ABC");
+	public List<Question> getAllQuestions(){
+		return dummy;
+	}
+}

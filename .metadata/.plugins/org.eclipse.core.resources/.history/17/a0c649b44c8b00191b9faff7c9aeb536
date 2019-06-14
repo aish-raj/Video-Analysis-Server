@@ -1,0 +1,42 @@
+package com.testvideoanalysis.path;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class PathManager {
+
+	private String root 			= "";
+	private String src 				= "";
+	private String jsonFiles 		= "";
+	private String pythonSrc 		= "";
+	private String downloadedVideos = "";
+	
+	PathManager(){
+		root 				+= "/home/neel/sts-workspace/Test-Video-Analysis-API/";
+		src 				+= "src/";
+		jsonFiles 			+= "json-files/";
+		pythonSrc			+= "python-src/";
+		downloadedVideos 	+= "downloaded-Videos/";
+		
+	}
+	
+	public Path getRoot() {
+		return Paths.get(root);
+	}
+	
+	public Path getSrc() {
+		return Paths.get(root + src);
+	}
+	
+	public Path getJsonFiles () {
+		return Paths.get(root + jsonFiles);
+	}
+	
+	public Path getPythonSrc() {
+		return Paths.get(root + pythonSrc);
+	}
+	
+	public Path getDownloadedVideos() {
+		return Paths.get(root + downloadedVideos);
+	}
+}

@@ -1,0 +1,26 @@
+package com.testvideoanalysis.videos;
+
+public class VideoController {
+	
+	@Controller
+	public class MyController {
+
+	    @Autowired
+	    private StorageService storageService;
+
+	    @RequestMapping(value = "/doUpload", method = RequestMethod.POST,
+	            consumes = {"multipart/form-data"})
+	    public String upload(@RequestParam MultipartFile file) {
+
+	        storageService.uploadFile(file);
+
+	        return "redirect:/success.html";
+	    }
+
+	    @ExceptionHandler(StorageException.class)
+	    public String handleStorageFileNotFound(StorageException e) {
+
+	        return "redirect:/failure.html";
+	    }
+	}
+}

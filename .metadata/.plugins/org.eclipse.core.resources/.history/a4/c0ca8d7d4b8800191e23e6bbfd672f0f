@@ -1,0 +1,30 @@
+package com.testvideoanalysis.videos;
+
+@Service
+public class VideoService {
+
+	    @Value("${upload.path}")
+	    private String path;
+
+	    public void uploadFile(MultipartFile file) {
+
+	        if (file.isEmpty()) {
+	            throw new StorageException("Failed to store empty file");
+	        }
+
+	        try {
+	            var fileName = file.getOriginalFilename();
+	            var is = file.getInputStream();
+	            Files.copy(is, Paths.get(path + fileName), StandardCopyOption.REPLACE_EXISTING);
+	            
+	        } 
+	        
+	        catch (IOException e) {
+
+	            var msg = String.format("Failed to store file", file.getName());
+	            throw new StorageException(msg, e);
+	        }
+
+	    }
+	}
+}

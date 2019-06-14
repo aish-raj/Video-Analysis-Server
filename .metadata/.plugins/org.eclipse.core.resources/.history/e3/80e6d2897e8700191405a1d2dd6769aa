@@ -1,0 +1,3 @@
+server.port = 3030
+spring.data.mongodb.host=mongoserver
+spring.data.mongodb.port= 3030

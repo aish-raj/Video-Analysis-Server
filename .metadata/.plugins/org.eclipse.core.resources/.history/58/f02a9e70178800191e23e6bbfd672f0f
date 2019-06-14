@@ -1,0 +1,43 @@
+package com.videoanalysis.questions;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class QuestionController {
+
+	@Autowired
+	private QuestionService questionService;
+	
+	@RequestMapping("/questions")
+	public List<Question> getAllQuestions() {
+		return questionService.getAllQuestions();
+	}
+	
+	@RequestMapping("/questions/{qid}")
+	public Optional<Question> getQuestion(@PathVariable String qid) {
+		return questionService.getQuestion(qid);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/questions")
+	public void addQuestion(@RequestBody Question question) {
+		questionService.addQuestion(question);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/questions/{qid}")
+	public void updateQuestion(@RequestBody Question question) {
+		questionService.updateQuestion(question);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/questions/{qid}")
+	public void deleteQuestion(@PathVariable String qid) {
+		questionService.deleteQUestion(qid);
+	}
+}

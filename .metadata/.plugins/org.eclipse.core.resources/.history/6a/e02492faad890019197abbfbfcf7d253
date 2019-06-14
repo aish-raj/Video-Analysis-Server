@@ -1,0 +1,48 @@
+package com.testvideoanalysis.video;
+
+import java.nio.file.Path;
+
+public class Video {
+	
+	private String videoName;
+	private Path donwloadPath;
+	private String videoType;
+	private String videoId;
+	
+	public Video() {
+	
+	}
+	
+	public Video(String videoName, Path donwloadPath, String videoType, String videoID) {
+		super();
+		this.videoName = videoName;
+		this.donwloadPath = donwloadPath;
+		this.videoType = videoType;
+	}
+
+	public String getVideoName() {
+		return videoName;
+	}
+	
+	public void setVideoName(String videoName) {
+		this.videoName = videoName;
+	}
+	
+	public Path getDonwloadPath() {
+		return donwloadPath;
+	}
+	
+	public void setDonwloadPath(Path donwloadPath) {
+		this.donwloadPath = donwloadPath;
+	}
+	
+	public String getVideoType() {
+		return videoType;
+	}
+	
+	public void setVideoType(String videoType) {
+		this.videoType = videoType;
+	}
+	
+	public Path 
+}

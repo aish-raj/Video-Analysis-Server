@@ -1,0 +1,50 @@
+package com.testvideoanalysis.video;
+
+import java.nio.file.Path;
+
+public class Video {
+	
+	private String videoName;
+	private String videoType;
+	private String videoId;
+	private String directoryPath;
+	
+	public Video() {
+	
+	}
+	
+	public Video(String videoName, String videoId) {
+		super();
+		String [] splitVideoName = videoName.split(".");
+		this.videoType = splitVideoName[1];
+		this.videoId = videoId;
+		this.videoName = splitVideoName[0] + "-" + videoId + "." + videoType;
+		this.directoryPath = "/home/neel/IITB/server/videos";
+	}
+
+	public String getVideoName() {
+		return videoName;
+	}
+	
+	public void setVideoName(String videoName) {
+		this.videoName = videoName;
+	}
+	
+	public String getDirectoryPath() {
+		return directoryPath;
+	}
+	
+	public void setDirectoryPath(String donwloadPath) {
+		this.directory = donwloadPath;
+	}
+	
+	public String getVideoType() {
+		return videoType;
+	}
+	
+	public void setVideoType(String videoType) {
+		this.videoType = videoType;
+	}
+	
+	public Path 
+}

@@ -1,0 +1,14 @@
+package com.testvideoanalysis.path;
+
+public class PathManager {
+
+	private String root = "";
+	
+	PathManager(){
+		root += "/home/neel/sts-workspace/Test-Video-Analysis-API";
+	}
+	
+	public Path getRoot() {
+		return Paths.get(root);
+	}
+}

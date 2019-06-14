@@ -1,0 +1,11 @@
+server.port 							= 4001
+spring.servlet.multipart.maxFileSize	= 50MB
+server.tomcat.max-threads				= 3
+
+
+post.uri 					= "/upload"
+root.directory 				= "/home/neel/sts-workspace/Test-Video-Analysis-API/"
+src.directory		 		= "src/"
+jsonFiles.directory 		= "jsonFiles/"
+pythonSrc.directory 		= "pythonSrc/"
+downloadedVideos.directory	= "downloadedVideos/"

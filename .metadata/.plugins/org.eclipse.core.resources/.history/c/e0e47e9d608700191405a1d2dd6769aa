@@ -1,0 +1,10 @@
+package com.videoanalysis.questions;
+
+public class Question {
+
+	private int id;
+	private String gender;
+	private int age;
+	private ArrayList<String> emotions;
+	private ArrayList<String> topics;
+}

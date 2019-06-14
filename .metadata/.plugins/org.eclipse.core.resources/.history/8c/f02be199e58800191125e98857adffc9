@@ -1,0 +1,31 @@
+package com.testvideoanalysis.video;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+@Service
+public class VideoService {
+	
+	private String path = "/home/neel/";
+	private String fileName = "video1.mp4";
+	
+	public void uploadFile(MultipartFile file) {
+		try {
+		      InputStream is = file.getInputStream();
+		      fileName = file.getOriginalFilename();
+		      System.out.println("Uploading files.");
+		      Files.copy(is, Paths.get(path + fileName + ".mp4"), StandardCopyOption.REPLACE_EXISTING);
+		}
+		
+		catch (IOException ex) {
+		      System.out.println("Error writing file to output stream.");
+		      throw new RuntimeException("IOError writing file to output stream");
+		}
+	}
+}

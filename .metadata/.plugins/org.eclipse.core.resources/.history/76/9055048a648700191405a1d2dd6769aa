@@ -1,0 +1,17 @@
+package com.videoanalysis.questions;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class QuestionController {
+
+	@Autowired
+	private QuestionService questionService;
+	
+	@RequestMapping("/questions")
+	public List<Question> getAllQuestions()
+	{
+		return questionService.getAllQuestions();
+	}
+}
