@@ -72,8 +72,9 @@ from utils.helper import get_predictions
 from utils.helper import store_in_json_file
 from utils.helper import get_video_path
 import random
-
-os.chdir("/home/aishwarya/video-analysis-server/Test-Video-Analysis-API3/python-src")
+print(os.getcwd())
+root = os.getcwd()+ "/python-src/"
+os.chdir(root)
 #All parameters are stored in this file. Tweak parameters in config.ini for changes.
 PATH_TO_CONFIG_FILE = "config.ini"
 
@@ -106,6 +107,8 @@ subject_count           = {'politics':0, 'sports':0, 'machines':0, 'music':0, 't
 
 video_path              = str(sys.argv[1])
 json_tag_write_path     = get_json_tag_write_file(video_path, json_directory_path)
+print(os.getcwd())
+print(json_tag_write_path)
 
 #initialise the labels
 emotion_labels          = get_labels('fer2013')

@@ -11,7 +11,9 @@ public class PathManager {
 	private String downloadedVideos = "";
 	
 	PathManager(){
-		root 				+= "/home/aishwarya/video-analysis-server/Test-Video-Analysis-API3/";
+		root 				+=  System.getProperty("user.dir") +"/";
+		System.out.println(root);
+	             
 		src 				+= "src/";
 		jsonFiles 			+= "json-files/";
 		pythonSrc			+= "python-src/";

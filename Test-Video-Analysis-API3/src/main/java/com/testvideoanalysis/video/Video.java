@@ -1,28 +1,35 @@
 package com.testvideoanalysis.video;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
 
 import com.testvideoanalysis.path.PathManager;
 
 public class Video {
-	
+	@Id
+	private String videoId;
 	private String videoName;
 	private String videoType;
-	private String videoId;
+	private String tags;
+	private String status;
 	
 	@Autowired
 	PathManager pathManager;
-	
+
 	public Video() {
 	
 	}
 	
 	public Video(String videoName, String videoId) {
 		super();
-		this.videoId				= videoId;
+		
 		String [] splitVideoName	= videoName.split("\\.");
 		this.videoType 				= splitVideoName[splitVideoName.length-1];
-		this.videoName	 			= splitVideoName[0] + "-" + videoId;
+		this.videoName	 			= splitVideoName[0]  ;
+		this.status="queued";
+		this.tags="";
+		this.videoId =videoId;
+				
 	}
 
 	public String getVideoName() {
@@ -48,9 +55,23 @@ public class Video {
 	public String getVideoId() {
 		return videoId;
 	}
-	
-	public void setVideoid(String videoId) {
-		this.videoId = videoId;
+
+	public String getTags() {
+		return tags;
 	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 	
 }
